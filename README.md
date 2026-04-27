@@ -10,6 +10,8 @@ I work by directing and reviewing model-generated code, and I am actively learni
 
 ### Public portfolio
 
+[**Tripwire**](https://github.com/camerontjs-dot/Tripwire) — a local-first template that turns an AI coding agent into a personal research analyst and portfolio skeptic. The system is built around provenance, disconfirming evidence, calibrated language, validation hooks before structured records are written, and an append-only audit log. It is designed to challenge a thesis rather than confirm it: leading with counterevidence, surfacing what the agent cannot verify, and replacing predictions with observable conditions that should trigger reconsideration. Agent-neutral, tested with Claude, Codex, and Gemini. Currently v0.1.0.
+
 [**Career Decision Engine**](https://github.com/camerontjs-dot/career-decision-engine) — a browser-based decision-support tool for comparing job offers and career paths. Relative scoring across five dimensions, rule checks separated from the weighted score, calibrated confidence labels for clear leads and close calls, and a guided intake that derives starting weights from tradeoff answers. Engine logic is separated from UI and covered by browser tests, an invariant sweep, an output-quality sweep, and a 6,309-case combination matrix.
 
 Live demo: [camerontjs-dot.github.io/career-decision-engine](https://camerontjs-dot.github.io/career-decision-engine/)
@@ -27,5 +29,5 @@ I have not published formal ML research. My evidence is execution-based rather t
 
 ### Contact
 
-- LinkedIn: [[cameron-sanderson-55a361126](https://www.linkedin.com/in/cameron-sanderson-55a361126)](https://www.linkedin.com/in/cameron-sanderson/)
+- LinkedIn: https://www.linkedin.com/in/cameron-sanderson/
 - Email: camerontjs@gmail.com
