@@ -12,11 +12,9 @@ Most of what follows is public. The repos are the evidence.
 
 ### Research apparatus
 
-The largest public project is a multi-component experimental instrument built to test a narrow question: do structured scaffolds reduce unsupported claims in AI research workflows?
+The strongest public project cluster is a multi-component evidence-support apparatus for a narrow question: how do we keep AI-assisted research workflows from carrying unsupported claims into final outputs?
 
-Four repos form the apparatus:
-
-[**Research Scaffold Harness**](https://github.com/camerontjs-dot/research-scaffold-harness) runs bounded research tasks under controlled workflow conditions and emits locked scaffold-run artifacts. Four conditions (baseline, format-only, provenance scaffold, full scaffold) with frozen prompt templates, deterministic source-packet loading, and a uniform claim extractor.
+Three public repos form the current apparatus:
 
 [**Evidence Bundler**](https://github.com/camerontjs-dot/evidence-bundler) consumes scaffold-run artifacts, nominates candidate evidence passages through BM25, hybrid, reranked, and contradiction retrieval, then carries those nominations through review annotation, excerpt refinement, finalization, and coverage reporting. 192 tests. Real-corpus demo against FDA CGMP guidance.
 
