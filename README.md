@@ -1,59 +1,61 @@
-## Cameron Sanderson
+# Cameron Sanderson
 
-Self-taught applied AI systems builder from regulated sterile pharma QA/QC. Eight plus years in manufacturing under cGMP, GLP/GDP, USP <797>, Health Canada, and FDA 21 CFR 210/211. The same operating style I use for deviations, CAPA, and validation now drives how I build AI tools: traceability, failure-mode thinking, explicit uncertainty, and quality gates before outputs are trusted.
+Pharma QA/QC operator building inspectable AI workflows for regulated and evidence-heavy work.
 
-Based in Richmond Hill, Ontario. Bilingual English and French.
+I have more than eight years of experience across sterile compounding, analytical QC, OOS investigations, controlled records, safety programs, and direct communication with physicians and pharmacists. I now apply the same operating habits to software: preserve the source state, make review points visible, test the failure modes, and leave enough evidence for someone else to challenge the result.
 
-### What I build
+Based in Ontario, Canada. Bilingual English and French.
 
-I design and build local AI workflow systems where provenance, structured outputs, validation sweeps, and confidence calibration keep the result from overclaiming what the inputs support. I work by directing and reviewing model-generated code and am actively building direct Python proficiency.
+## Start here
 
-Most of what follows is public. The repos are the evidence.
+If you have one minute, these three repositories explain the direction:
 
-### Research apparatus
+1. [**Claim Audit Lab**](https://github.com/camerontjs-dot/claim-audit-lab) checks whether draft claims are supported by supplied evidence. It uses deterministic rules and produces reviewable Markdown and JSON reports with explicit limits.
+2. [**Evidence Bundler**](https://github.com/camerontjs-dot/evidence-bundler) turns bounded source material into reviewable evidence bundles. Retrieval nominates candidate passages; human review decides what belongs in the final bundle.
+3. [**Apparatus Contracts**](https://github.com/camerontjs-dot/apparatus-contracts) defines versioned handoffs, controlled vocabulary, and integrity checks for moving artifacts between tools without hiding the boundary.
 
-The strongest public project cluster is a multi-component evidence-support apparatus for a narrow question: how do we keep AI-assisted research workflows from carrying unsupported claims into final outputs?
+Together, they show the pattern I am building toward: source material enters, provenance stays attached, review remains explicit, and final claims can be checked against the evidence the workflow actually supplied.
 
-Three public repos form the current apparatus:
+[Read the claim-support workflow case study.](CLAIM_SUPPORT_WORKFLOW.md)
 
-[**Evidence Bundler**](https://github.com/camerontjs-dot/evidence-bundler) consumes scaffold-run artifacts, nominates candidate evidence passages through BM25, hybrid, reranked, and contradiction retrieval, then carries those nominations through review annotation, excerpt refinement, finalization, and coverage reporting. 192 tests. Real-corpus demo against FDA CGMP guidance.
+## The workflow
 
-[**Claim Audit Lab**](https://github.com/camerontjs-dot/claim-audit-lab) consumes evidence bundles and produces deterministic claim-support audit verdicts. Rule-based, not model-scored. 136 tests.
+```mermaid
+flowchart LR
+    A["Bounded source packet"] --> B["Evidence Bundler"]
+    B --> C["Candidate evidence"]
+    C --> D["Human review"]
+    D --> E["Reviewed evidence bundle"]
+    E --> F["Claim Audit Lab"]
+    F --> G["Claim-by-claim audit report"]
+    H["Apparatus Contracts"] -. "versioned schemas and integrity checks" .-> B
+    H -. "versioned schemas and integrity checks" .-> F
+```
 
-[**Apparatus Contracts**](https://github.com/camerontjs-dot/apparatus-contracts) is the versioned handoff specification that connects the three components. Controlled vocabulary, schema definitions, hash-verified integrity checks, and a Python verifier suite. Regulated-industry data-integrity grammar (ALCOA+, 21 CFR Part 11) applied to AI workflow tooling.
+The public tools are not a truth engine or a regulated quality system. Evidence Bundler nominates and packages evidence. Claim Audit Lab audits support relative to supplied evidence. Apparatus Contracts defines the intended handoff shape. The full contract adapter and upstream research harness remain active work rather than public-release claims.
 
-The components communicate through locked contract artifacts, not shared code. Each repo tests independently and verifies intake from the upstream component at its own boundary.
+## Other public work
 
-### Knowledge layer
+[**Career Decision Engine**](https://github.com/camerontjs-dot/career-decision-engine) is a browser-based decision-support tool with visible scoring, separate rule checks, confidence labels, and validation sweeps. [Try the live demo.](https://camerontjs-dot.github.io/career-decision-engine/)
 
-The second pairing is a personal knowledge system built in two parts that complement each other.
+[**MindGraph**](https://github.com/camerontjs-dot/MindGraph) is a local retrieval engine over a Markdown knowledge workspace. It combines lexical and semantic retrieval, typed document links, bounded graph expansion, and an MCP interface.
 
-[**Mainframe**](https://github.com/camerontjs-dot/MainFrame) is a Markdown-first knowledge workspace organized by information lifecycle: inbox, ingest, knowledge, live state, projects, archive. Each stage has its own update rules and deterministic routing scripts. The structure is the retrieval surface.
+[**Mainframe**](https://github.com/camerontjs-dot/MainFrame) is the Markdown-first knowledge and project workspace that MindGraph indexes. It separates inbox, ingest, durable knowledge, live state, projects, and archive by lifecycle.
 
-[**MindGraph**](https://github.com/camerontjs-dot/MindGraph) is the local retrieval engine that indexes Mainframe. One SQLite file, no service. BM25 plus sqlite-vec cosine fused with Reciprocal Rank Fusion, a typed `[[link]]` document graph with bounded expansion walks, and an MCP server for local clients. 97 tests.
+[**Basic Research Harness**](https://github.com/camerontjs-dot/basic-research-harness) compares a raw Python agent loop with a project-configured SDK workflow so the procedure, review step, stop condition, and QA gate remain visible.
 
-Mainframe organizes the notes. MindGraph makes them findable.
+## What I am looking for
 
-### Other public tools
+I am most useful where regulated operations meet implementation:
 
-[**Basic Research Harness**](https://github.com/camerontjs-dot/basic-research-harness) is a small agent-engineering learning piece that builds the same research-to-bundle workflow two ways: a raw Python agent loop that owns every decision point in code, and a Claude Code SDK rebuild that moves the procedure, review step, and QA gate into project assets (Skill, sub-agent, PostToolUse hook). Putting the two side by side makes the responsibilities of an agent harness visible.
+- regulated software implementation and customer technical services;
+- quality systems, data integrity, and digital quality work;
+- AI evaluation and evidence-handling workflows;
+- forward-deployed or consulting work that requires mapping a real process before automating it.
 
-[**Career Decision Engine**](https://github.com/camerontjs-dot/career-decision-engine) is a browser-based decision-support tool for comparing job offers and career paths. Relative scoring, rule checks separated from the weighted score, calibrated confidence labels, and a guided intake. 6,309 checks across 700 evaluated comparisons. [Live demo.](https://camerontjs-dot.github.io/career-decision-engine/)
+My software work is self-taught and project-based. I am not presenting myself as a finished senior software engineer or ML researcher. The value I bring is the bridge between regulated operations, reviewable evidence, and working systems.
 
-[**Tripwire**](https://github.com/camerontjs-dot/Tripwire) is a local-first template that turns an AI coding agent into a personal research analyst and portfolio skeptic. Provenance, disconfirming evidence, calibrated language, validation hooks, and an append-only audit log. Agent-neutral, tested with Claude, Codex, and Gemini.
+## Contact
 
-### Private systems
-
-Two larger systems are in active use but not yet public. I can walk through the architecture without exposing sensitive content.
-
-- **Command Center** is a local multi-context AI workflow system with 7+ specialized analyst modes, structured outputs, provenance, and scope control.
-- **The Registered Edge** is a content workflow with 20+ custom skill modules for research synthesis, drafting, review, formatting, and quality control. Designed to reduce AI-tell writing, surface uncertainty, and separate human judgment from model-generated support.
-
-### Where I am calibrated
-
-I have not published formal ML research. My evidence is execution-based rather than credential-based, and my strongest contribution to AI work is the validation posture I bring from regulated quality environments. Python is a growing strength, not a finished senior-engineering claim. The public portfolio speaks for itself, and I am still expanding it.
-
-### Contact
-
-- LinkedIn: [linkedin.com/in/cameron-sanderson](https://www.linkedin.com/in/cameron-sanderson/)
-- Email: camerontjs@gmail.com
+- [LinkedIn](https://www.linkedin.com/in/cameron-sanderson/)
+- [Email](mailto:camerontjs@gmail.com)
