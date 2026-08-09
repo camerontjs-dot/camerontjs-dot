@@ -1,59 +1,54 @@
 # Cameron Sanderson
 
-Pharma QA/QC operator building inspectable AI workflows for regulated and evidence-heavy work.
+I build and evaluate AI systems that have to survive review — agent evaluation harnesses, claim-support audits, and provenance pipelines.
 
-I have more than eight years of experience across sterile compounding, analytical QC, OOS investigations, controlled records, safety programs, and direct communication with physicians and pharmacists. I now apply the same operating habits to software: preserve the source state, make review points visible, test the failure modes, and leave enough evidence for someone else to challenge the result.
+The discipline comes from more than eight years in sterile pharma QA/QC (cGMP, USP &lt;797&gt;): preserve the source state, make failure modes testable, and leave enough evidence for someone else to challenge the result. That background is my credibility, not the only audience I write for.
 
 Based in Ontario, Canada. Bilingual English and French.
 
-## Start here
+## Start here (two paths, one minute)
 
-If you have one minute, these three repositories explain the direction:
+### Path A — Claim support apparatus
 
-1. [**Claim Audit Lab**](https://github.com/camerontjs-dot/claim-audit-lab) checks whether draft claims are supported by supplied evidence. It uses deterministic rules and produces reviewable Markdown and JSON reports with explicit limits.
-2. [**Evidence Bundler**](https://github.com/camerontjs-dot/evidence-bundler) turns bounded source material into reviewable evidence bundles. Retrieval nominates candidate passages; human review decides what belongs in the final bundle.
-3. [**Apparatus Contracts**](https://github.com/camerontjs-dot/apparatus-contracts) defines versioned handoffs, controlled vocabulary, and integrity checks for moving artifacts between tools without hiding the boundary.
+1. [**Claim Audit Lab**](https://github.com/camerontjs-dot/claim-audit-lab) — audits whether draft claims are supported by *supplied* evidence (deterministic rules, Markdown + JSON reports, explicit limits).
+2. [**Evidence Bundler**](https://github.com/camerontjs-dot/evidence-bundler) — nominates candidate passages into a reviewable bundle. Retrieval nominates; review decides.
+3. [**Apparatus Contracts**](https://github.com/camerontjs-dot/apparatus-contracts) — versioned handoffs and integrity checks between those stages.
 
-Together, they show the pattern I am building toward: source material enters, provenance stays attached, review remains explicit, and final claims can be checked against the evidence the workflow actually supplied.
+### Path B — Agent evaluation and completion honesty
 
-[Read the claim-support workflow case study.](CLAIM_SUPPORT_WORKFLOW.md)
+1. [**agent-eval-notes**](https://camerontjs-dot.github.io/agent-eval-notes/) — public methods tour: harnesses that score better and are not promoted, multi-path coding screens, task-family transfer, RAG routes, verify-tool honesty.
+2. [**verified-done**](https://github.com/camerontjs-dot/verified-done) — runnable demo: verified pass vs false completion vs scope violation, with a selftest and scrubbed live evidence.
 
-## The workflow
+Together, Path B treats **scope** and **false "done"** as first-class failures, not soft notes.
 
-```mermaid
-flowchart LR
-    A["Bounded source packet"] --> B["Evidence Bundler"]
-    B --> C["Candidate evidence"]
-    C --> D["Human review"]
-    D --> E["Reviewed evidence bundle"]
-    E --> F["Claim Audit Lab"]
-    F --> G["Claim-by-claim audit report"]
-    H["Apparatus Contracts"] -. "versioned schemas and integrity checks" .-> B
-    H -. "versioned schemas and integrity checks" .-> F
-```
+## How I know it works (two receipts)
 
-The public tools are not a truth engine or a regulated quality system. Evidence Bundler nominates and packages evidence. Claim Audit Lab audits support relative to supplied evidence. Apparatus Contracts defines the intended handoff shape. The full contract adapter and upstream research harness remain active work rather than public-release claims.
+- On a sealed coding-agent suite, a packet harness improved verified passes **28/36 → 34/36** and cleared scope violations **6 → 0**, then was **not promoted** because a pre-registered gate caught **2 false completion claims** on multi-file work (exploratory; details on the tour).
+- On a public demo split, holding the model fixed and removing a `run_verify` tool flipped honesty outcomes (and a local open-weight coder reproduced the flip; another model already abstained either way). Method: [Report 06](https://camerontjs-dot.github.io/agent-eval-notes/report-06.html) + [verified-done](https://github.com/camerontjs-dot/verified-done).
+
+Numbers are exploratory measurements with stated n, not production validation.
+
+## Workspace and retrieval
+
+- [**MainFrame**](https://github.com/camerontjs-dot/MainFrame) — public Stage 1b cut of a lifecycle-first Markdown knowledge OS (inbox → ingest → knowledge → live → projects → archive). Nested **MindGraph** local hybrid retrieval (lexical + semantic + graph). Private corpora stay private.
+- [**MindGraph**](https://github.com/camerontjs-dot/MindGraph) — standalone package of the same engine when you only want the retriever.
 
 ## Other public work
 
-[**Career Decision Engine**](https://github.com/camerontjs-dot/career-decision-engine) is a browser-based decision-support tool with visible scoring, separate rule checks, confidence labels, and validation sweeps. [Try the live demo.](https://camerontjs-dot.github.io/career-decision-engine/)
+- [**Career Decision Engine**](https://github.com/camerontjs-dot/career-decision-engine) — browser decision-support tool with visible scoring and confidence labels. [Live demo](https://camerontjs-dot.github.io/career-decision-engine/).
+- [**Research Scaffold Harness**](https://github.com/camerontjs-dot/research-scaffold-harness) / [**Basic Research Harness**](https://github.com/camerontjs-dot/basic-research-harness) — scaffold and agent-loop experiments with provenance-oriented outputs.
 
-[**MindGraph**](https://github.com/camerontjs-dot/MindGraph) is a local retrieval engine over a Markdown knowledge workspace. It combines lexical and semantic retrieval, typed document links, bounded graph expansion, and an MCP interface.
+## What this is not
 
-[**Mainframe**](https://github.com/camerontjs-dot/MainFrame) is the Markdown-first knowledge and project workspace that MindGraph indexes. It separates inbox, ingest, durable knowledge, live state, projects, and archive by lifecycle.
-
-[**Basic Research Harness**](https://github.com/camerontjs-dot/basic-research-harness) compares a raw Python agent loop with a project-configured SDK workflow so the procedure, review step, stop condition, and QA gate remain visible.
+These tools are not a truth engine, not a regulated quality system, and not a claim that production agents are “validated.” Evidence Bundler nominates. Claim Audit Lab audits relative to supplied evidence. Agent-eval numbers are sealed or demo-split measurements with stated limits. Software work is self-taught and project-based.
 
 ## What I am looking for
 
-I am most useful where regulated operations meet implementation:
+Work where AI systems meet review, reliability, and real operating constraints:
 
-- regulated software implementation and customer technical services;
-- quality systems, data integrity, and digital quality work;
-- AI evaluation and evidence-handling workflows;
-- forward-deployed or consulting work that requires mapping a real process before automating it.
-
-My software work is self-taught and project-based. I am not presenting myself as a finished senior software engineer or ML researcher. The value I bring is the bridge between regulated operations, reviewable evidence, and working systems.
+- AI evaluation, agent reliability, and evidence-handling workflows
+- regulated software, quality systems, and data integrity
+- forward-deployed or consulting work that maps a real process before automation
 
 ## Contact
 
