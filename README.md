@@ -2,7 +2,7 @@
 
 I build and evaluate AI systems that have to survive review — agent evaluation harnesses, claim-support audits, and provenance pipelines.
 
-The discipline comes from more than eight years in sterile pharma QA/QC (cGMP, USP &lt;797&gt;): preserve the source state, make failure modes testable, and leave enough evidence for someone else to challenge the result. That background is my credibility, not the only audience I write for.
+The discipline comes from more than eight years in sterile pharma QA/QC (cGMP, USP 797): preserve the source state, make failure modes testable, and leave enough evidence for someone else to challenge the result. That background is my credibility, not the only audience I write for.
 
 Based in Ontario, Canada. Bilingual English and French.
 
