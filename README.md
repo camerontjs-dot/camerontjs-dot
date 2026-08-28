@@ -33,6 +33,7 @@ These are exploratory measurements with stated sample sizes, not production vali
 
 ## Other public work
 
+- [**Grounded Agent Lab**](https://github.com/camerontjs-dot/grounded-agent-lab) is a small research agent that answers from cited fixture notes or abstains. It keeps retrieval routes labelled, exposes only read-only tools, fails closed when optional providers are unavailable, and ships a rerunnable demo plus explicit limitations.
 - [**Career Decision Engine**](https://github.com/camerontjs-dot/career-decision-engine) is a browser decision-support tool that keeps weighted scores, rule checks, confidence labels, assumptions, and cannot-verify items visible. [Live demo](https://camerontjs-dot.github.io/career-decision-engine/).
 
 ## Boundaries
