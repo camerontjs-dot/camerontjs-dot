@@ -41,14 +41,6 @@ These are exploratory measurements with stated sample sizes, not production vali
 
 Claim Audit Lab audits support relative to supplied evidence; it does not establish truth about the world. Evidence Bundler nominates and prepares evidence; retrieval scores are not support verdicts. The agent-evaluation numbers above are exploratory measurements, and the sealed fixtures behind the private-suite headline are not published. MainFrame's public repository excludes private corpora and volatile personal state.
 
-## What I am looking for
-
-Work where AI systems meet review, reliability, and real operating constraints:
-
-- AI evaluation, agent reliability, and evidence-handling workflows
-- regulated software, quality systems, and data integrity
-- forward-deployed or consulting work that maps a real process before automation
-
 ## Contact
 
 - [cameronsanderson.ca](https://cameronsanderson.ca/)
