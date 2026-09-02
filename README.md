@@ -13,6 +13,7 @@ Based in Ontario, Canada. Bilingual English and French.
 1. [**Claim Audit Lab**](https://github.com/camerontjs-dot/claim-audit-lab) audits whether draft claims are supported by supplied evidence. Its current default path retrieves candidate passages, gets an NLI entailment signal, then applies a frozen deterministic rule set. Reports preserve the engine, rules identity, decision trace, and explicit limits.
 2. [**Evidence Bundler**](https://github.com/camerontjs-dot/evidence-bundler) prepares traceable evidence bundles from bounded corpora. Retrieval nominates candidate passages; review and finalization decide what enters the downstream bundle.
 3. [**Apparatus Contracts**](https://github.com/camerontjs-dot/apparatus-contracts) owns the versioned, integrity-checked handoff contracts between the evidence and audit stages.
+4. [**Decision Engine**](https://github.com/camerontjs-dot/decision-engine) consumes Contract C and emits Contract D; a clear Decision is not authorization.
 
 ### Agent evaluation and completion honesty
 
@@ -50,5 +51,6 @@ Work where AI systems meet review, reliability, and real operating constraints:
 
 ## Contact
 
+- [cameronsanderson.ca](https://cameronsanderson.ca/)
 - [LinkedIn](https://www.linkedin.com/in/cameron-sanderson/)
 - [Email](mailto:camerontjs@gmail.com)

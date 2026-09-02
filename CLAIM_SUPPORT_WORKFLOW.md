@@ -20,15 +20,17 @@ flowchart TD
     D --> E["Finalize a reviewed evidence bundle"]
     E --> F["Audit claims against supplied evidence"]
     F --> G["Write human-review Markdown and typed JSON"]
+    F --> H["Decision Engine consumes Contract C and emits Contract D"]
 ```
 
-Three public repositories carry different responsibilities.
+Four public repositories carry different responsibilities.
 
 | Component | Responsibility | Boundary |
 | --- | --- | --- |
 | [Evidence Bundler](https://github.com/camerontjs-dot/evidence-bundler) | Ingest bounded sources, nominate passages, preserve provenance, record review state, and write coverage reports | Retrieval scores are ranking signals, not support verdicts |
 | [Apparatus Contracts](https://github.com/camerontjs-dot/apparatus-contracts) | Define versioned schemas, controlled vocabulary, hashes, and integrity checks for handoffs | Structural integrity does not establish methodological correctness |
 | [Claim Audit Lab](https://github.com/camerontjs-dot/claim-audit-lab) | Apply deterministic checks to claims and supplied evidence, then produce reviewable reports | It audits support relative to supplied evidence, not truth in the world |
+| [Decision Engine](https://github.com/camerontjs-dot/decision-engine) | Contract C consumer / Contract D producer | A clear Decision is not authorization |
 
 ## Why I built it this way
 
@@ -64,6 +66,12 @@ Claim Audit Lab includes:
 - fictional checked-in examples;
 - validation-inspired requirements and IQ/OQ/PQ records for the published CLI boundary.
 
+Decision Engine includes:
+
+- a public Contract C consumer and Contract D producer;
+- a public Claim Audit Lab → Decision Engine Contract C/D path;
+- the limit that a clear Decision is not authorization.
+
 Apparatus Contracts includes:
 
 - a versioned handoff specification;
@@ -78,6 +86,8 @@ The public repositories prove the components and their design rules. They do not
 
 - Evidence Bundler and Apparatus Contracts are published.
 - Claim Audit Lab's public release audits supplied YAML or JSON evidence.
+- Decision Engine is public. It consumes released Contract C and emits Contract D. A clear Decision is not authorization.
+- The public Claim Audit Lab → Decision Engine Contract C/D path exists.
 - The Claim Audit Lab contract adapter and full synthetic round trip are in the local workbench and require a separate review, verification, and publication pass.
 - The upstream Research Scaffold Harness is active local research work and is not a public repository.
 
@@ -109,3 +119,4 @@ The useful skill is not a specific retrieval model. It is mapping the real proce
 - [Evidence Bundler](https://github.com/camerontjs-dot/evidence-bundler)
 - [Apparatus Contracts](https://github.com/camerontjs-dot/apparatus-contracts)
 - [Claim Audit Lab](https://github.com/camerontjs-dot/claim-audit-lab)
+- [Decision Engine](https://github.com/camerontjs-dot/decision-engine)
